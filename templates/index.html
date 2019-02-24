@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SEM-III Minor Project: Sentiment Analysis</title>
+  <style>
+  body
+{
+    background-color : #484848;
+}
+h1
+{
+    color : #000000;
+    text-align : center;
+    font-family: "SIMPSON";
+}
+form
+{
+    align:"center";
+}
+.txtbox{
+        display: block;
+        float: center;
+        height: 48px;
+        width: 300px;
+    }
+    .example_a {
+color: #fff !important;
+text-transform: uppercase;
+background: #ed3330;
+padding: 20px;
+border-radius: 5px;
+display: inline-block;
+border: none;
+}
+
+.example_a:hover {
+background: #434343;
+letter-spacing: 1px;
+-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+transition: all 0.4s ease 0s;
+}
+.login_div {
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    /* Center form on page horizontally & vertically */
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -150px;
+}
+
+.login_form {
+    width: 300px;
+    height: 300px;
+
+    background: gray;
+    border-radius: 10px;
+
+    margin: 0;
+    padding: 0;
+}
+
+</style>
+
+</head>
+<body><div class="login_div">
+    <center>
+        <form method=post>
+          <input type="text" name="file" class="txtbox">
+          <input type="Submit" class="example_a">
+        </form>
+    </center>
+  </div>
+</body>

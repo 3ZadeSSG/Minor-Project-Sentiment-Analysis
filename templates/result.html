@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SEM-III Minor Project: Sentiment Analysis</title>
+	<style>
+		h1 { color: #2d74e5; font-family: 'Raleway',sans-serif; font-size: 62px; font-weight: 800; line-height: 72px; margin: 0 0 24px; text-align: center; text-transform: uppercase; }
+		h2 { color: #2f74e2; font-family: 'Raleway',sans-serif; font-size: 30px; font-weight: 800; line-height: 36px; margin: 0 0 24px; text-align: center; }
+		p { color: #ffffff; font-family: 'Raleway',sans-serif; font-size: 18px; font-weight: 500; line-height: 32px; margin: 0 0 24px; }
+		body{
+    background-color : #484848;
+}
+form
+{
+    align:"center";
+}
+.txtbox{
+        display: block;
+        float: center;
+        height: 48px;
+        width: 300px;
+    }
+    .example_a {
+color: #fff !important;
+text-transform: uppercase;
+background: #ed3330;
+padding: 20px;
+border-radius: 5px;
+display: inline-block;
+border: none;
+}
+
+.example_a:hover {
+background: #434343;
+letter-spacing: 1px;
+-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+transition: all 0.4s ease 0s;
+}
+.login_div {
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    /* Center form on page horizontally & vertically */
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -150px;
+}
+
+.login_form {
+    width: 300px;
+    height: 300px;
+
+    background: gray;
+    border-radius: 10px;
+
+    margin: 0;
+    padding: 0;
+}
+
+	</style>
+</head>
+<body>
+	<div class="login_div">
+		<center>
+			<h1>Prediction</h1>
+			<p>Result: {{sentiment}}</p>
+		</center>
+	</div>
+</body>
+</html>

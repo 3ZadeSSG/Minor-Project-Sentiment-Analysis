@@ -1,0 +1,5 @@
+{
+	"name": "Sentiment Analyzer",
+	"description": "Sentiment Analysis model",
+	"keywords": ["python","flask","numpy","rnn"]
+}
