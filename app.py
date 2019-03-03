@@ -1,4 +1,6 @@
 from flask import Flask,render_template,request
+import sys
+import logging
 app = Flask(__name__)
 # commons.py contains all methods to load the model from checkpoint and predict the sentiment
 from commons import *
@@ -17,5 +19,5 @@ def hello():
 		
 if __name__=='__main__':
 	app.run(port=os.getenv('PORT',5000))
-
-
+	app.logger.addHandler(logging.StreamHandler(sys.stdout))
+	app.logger.setLevel(logging.ERROR)

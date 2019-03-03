@@ -86,7 +86,7 @@ def buildNetwork(vocab_to_int):
 #########################################################################################
 def load_checkpoint(filepath,vocab_to_int):
     model=buildNetwork(vocab_to_int)
-    model.load_state_dict(torch.load(filepath))
+    model.load_state_dict(torch.load(filepath,map_location='cpu'))
     model.cpu()
     return model
 #############################################################################################
