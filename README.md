@@ -42,7 +42,7 @@ However a numpy implementation is defined in LSTMCell.py
 
 # Files required for deploying model on heroku cloud service.
 1. **_SentimentAnalysisCheckpoint.pth :_** The cheackpoint file of trained model to be loaded so that we can use it for prediction
-2. **_vocab_to_int.py :_** To avoid processing the data used in training to create the vocabulary to integer mapping dict, this file was written when running the main training program to avoid processing of data again, we can simply load this dict file to use in prediction
+2. **_vocab_to_int.py :_** To avoid processing the data used in training to create the vocabulary to integer mapping dictonary, this file was written when running the main training program to avoid processing of data again, we can simply load this dictonary file to use in prediction.
 3. **_commons.py :_** Python file containing the model definition, method to load the checkpoint and recreate model from that, and finally the prediction method which will return string containing prediction
 4. **_app.py :_** Flask implementation for networking, it used GET and POST methods to receive a request and call prediction form *commons.py* and return result.
 5. **_templates :_** Contains html files, each webpage of website to be rendered by calling from *app.py*
@@ -53,11 +53,11 @@ However a numpy implementation is defined in LSTMCell.py
 
 
 # Steps to deploy model on Heroku Cloud
-1. (Optional) If case you want to use this repository to create your own app, clone this repo with command and goto step 3
+1. (Optional) If case you want to use this repository to create your own app, clone this repo. with following command and goto step 3.
      
             $ git clone https://github.com/3ZadeSSG/Minor-Project-Sentiment-Analysis
 
-2. After training model, and saving the checkpoint, create another python file, (for example 'commons.py' in this case)
+2. After the training model, and saving the checkpoint, create another python file, (for example 'commons.py' in this case)
 to recreate the model using checkpoint, and implement the predict function, so that passing any string will return result in string format.
 
 3. Initialize the repo with (after removing any other git dependency from command line or by deleting git folder)
@@ -114,7 +114,7 @@ Also Heroku app runs on CPU, so it will take some time to process the result whe
  
 # Running the prediction locally
 
-To run the prediction locally just import the **"commons.py"** and call the function **"getSentimentPredictionResult()"**
+To run the prediction locally, just import the **"commons.py"** and call the function **"getSentimentPredictionResult()"**
 Here's a simple output of my terminal when i activated python.
 
         >>> from commons import *
