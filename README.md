@@ -42,7 +42,7 @@ However a numpy implementation is defined in LSTMCell.py
 
 # Files required for deploying model on heroku cloud service.
 1. **_SentimentAnalysisCheckpoint.pth :_** The cheackpoint file of trained model to be loaded so that we can use it for prediction
-2. **_vocab_to_int.py :_** To avoid processing the data used in training to create the vocabulary to integer mapping dictonary, this file was written when running the main training program to avoid processing of data again, we can simply load this dictonary file to use in prediction.
+2. **_vocab_to_int.npy :_** To avoid processing the data used in training to create the vocabulary to integer mapping dictonary, this file was written when running the main training program to avoid processing of data again, we can simply load this dictonary file to use in prediction.
 3. **_commons.py :_** Python file containing the model definition, method to load the checkpoint and recreate model from that, and finally the prediction method which will return string containing prediction
 4. **_app.py :_** Flask implementation for networking, it used GET and POST methods to receive a request and call prediction form *commons.py* and return result.
 5. **_templates :_** Contains html files, each webpage of website to be rendered by calling from *app.py*
