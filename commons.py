@@ -34,9 +34,9 @@ def predict(model,sentence, vocab_to_int,sequence_length=200):
     output,hidden_state=model(feature_tensor,hidden_state)
     prediction=torch.round(output.squeeze())
     if(prediction.item()==0):
-       resultString="{:.4f}  Positive sentence!".format(output.item())
-    else:
        resultString="{:.4f}  Negative sentence!".format(output.item())
+    else:
+       resultString="{:.4f}  Positive sentence!".format(output.item())
     return resultString
 ########################################################################
 def createData():
