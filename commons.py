@@ -72,6 +72,50 @@ class SentimentNetwork(nn.Module):
     hidden=(weight.new(self.number_of_layers,batch_size,self.hidden_dimension).zero_(),weight.new(self.number_of_layers,batch_size,self.hidden_dimension).zero_())
     return hidden
 ############################################################################################
+from torch.optim import Optimizer
+import  math
+class AdamOptimizerAlgorithm(Optimizer):
+  
+    
+    def __init__(self, params, lr=1e-3, betas=(0.9, 0.999), eps=1e-8):
+        defaults = dict(lr=lr, betas=betas, eps=eps)
+        super(AdamOptimizerAlgorithm, self).__init__(params, defaults)
+
+    def step(self):
+        for group in self.param_groups:
+            for p in group['params']:
+                if p.grad is None:
+                    continue
+                grad = p.grad.data
+                state = self.state[p]
+
+                # State initialization in case of initial state
+                if len(state) == 0:
+                    state['step'] = 0
+                    # Exponential moving average of gradient values
+                    state['exp_avg'] = torch.zeros_like(p.data)
+                    # Exponential moving average of squared gradient values
+                    state['exp_avg_sq'] = torch.zeros_like(p.data)
+                    
+
+                exp_avg, exp_avg_sq = state['exp_avg'], state['exp_avg_sq']
+                
+                beta1, beta2 = group['betas']
+
+                state['step'] += 1
+
+                #following is just a formula implementaion of the algorithm
+                exp_avg.mul_(beta1).add_(1 - beta1, grad)
+                exp_avg_sq.mul_(beta2).addcmul_(1 - beta2, grad, grad)
+                
+                denom = exp_avg_sq.sqrt().add_(group['eps'])
+
+                bias_correction1 = 1 - beta1 ** state['step']
+                bias_correction2 = 1 - beta2 ** state['step']
+                step_size = group['lr'] * math.sqrt(bias_correction2) / bias_correction1
+
+                p.data.addcdiv_(-step_size, exp_avg, denom)
+#####################################################################################                
 def buildNetwork(vocab_to_int):
   vocabulary_size=len(vocab_to_int)+1
   output_size=1
@@ -80,8 +124,8 @@ def buildNetwork(vocab_to_int):
   number_of_layers=2
   model=SentimentNetwork(vocabulary_size,output_size,embedding_dimension,hidden_dimension,number_of_layers)
   learning_rate=0.003
-  criterion=nn.BCELoss()
-  optimizer=torch.optim.Adam(model.parameters(),lr=learning_rate)
+  criterion=nn.MSELoss()
+  optimizer=AdamOptimizerAlgorithm(model.parameters(),lr=learning_rate)
   return model
 #########################################################################################
 def load_checkpoint(filepath,vocab_to_int):
