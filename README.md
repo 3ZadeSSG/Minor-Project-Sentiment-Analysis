@@ -35,6 +35,8 @@ However a numpy implementation is defined in LSTMCell.py
 [**Blog Post: Understanding LSTM Networks**](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)<br>
 [**A detailed explanation of LSTM**](http://blog.echen.me/2017/05/30/exploring-lstms/)<br>
 [**Youtube: LSTM Network implementation from scratch for generating texts.**](https://youtu.be/9zhrxE5PQgY)<br>
+[**Adam Algorithm used to train the network**](https://arxiv.org/pdf/1412.6980.pdf)<br>
+[**Blog Post on Adam Algorithm**](https://towardsdatascience.com/adam-latest-trends-in-deep-learning-optimization-6be9a291375c)<br>
 
 # Files required for network creation and training
 1. **_myModelHelper.py :_** Used for processing the downloaded data and create the train, validation and testing datasets. 
@@ -120,7 +122,7 @@ Here's a simple output of my terminal when i activated python.
         >>> from commons import *
         >>> sentence="kamikaze was one of the best album that came out last year"
         >>> print(getSentimentPredictionResult(sentence))
-        0.1583  Positive sentence!
+        0.9583  Positive sentence!
         
 # Additional links of services used:
 Each contains official links, and the main page has link for documentation
