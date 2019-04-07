@@ -7,22 +7,32 @@ from torch.utils.data import TensorDataset,DataLoader
 import torch.nn as nn
 
 def createData(positiveDataPath,negativeDataPath):
-	  reviews=""
-	  labels=""
-	  all_files_neg = os.listdir(negativeDataPath)
-	  all_files_pos = os.listdir(positiveDataPath)
-	  #################################################
-	  for file_location in all_files_pos:
-	    with open(positiveDataPath+file_location,'r')as f:
-	      reviews=reviews+f.read()+'\n'
-	      labels=labels+"positive"+'\n'
-	  #################################################
-	  for file_location in all_files_neg:
-	    with open(negativeDataPath+file_location,'r')as f:
-	      reviews=reviews+f.read()+'\n'
-	      labels=labels+"negative"+'\n'
-	   
-	  return reviews,labels
+    reviews=[]
+    labels=[]
+    all_files_neg = os.listdir(negativeDataPath)
+    all_files_pos = os.listdir(positiveDataPath)
+    for file_location in all_files_pos:
+        with open(positiveDataPath+file_location,'r',encoding="utf8")as f:
+            reviews.append(f.read())
+            labels.append("positive")
+            
+    for file_location in all_files_neg:
+        with open(negativeDataPath+file_location,'r',encoding="utf8")as f:
+            reviews.append(f.read())
+            labels.append("negative")
+    myDict={}
+    for i in range(len(reviews)):
+       myDict[i]=i
+    reviewArray=np.arange(len(reviews))
+    np.random.shuffle(reviewArray)
+    reviewString=""
+    labelString=""
+    for i in list(reviewArray):
+        reviewString=reviewString+reviews[i]+"\n"
+        labelString=labelString+labels[myDict[i]]+"\n"
+ 
+    return reviewString,labelString
+	
 
 def featuresPadding(reviews,sequenceLength):
   features=np.zeros((len(reviews),sequenceLength),dtype=int)
