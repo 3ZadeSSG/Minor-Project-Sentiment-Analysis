@@ -118,7 +118,7 @@ class AdamOptimizerAlgorithm(Optimizer):
 def buildNetwork(vocab_to_int):
   vocabulary_size=len(vocab_to_int)+1
   output_size=1
-  embedding_dimension=200
+  embedding_dimension=600
   hidden_dimension=512
   number_of_layers=3
   model=SentimentNetwork(vocabulary_size,output_size,embedding_dimension,hidden_dimension,number_of_layers)
