@@ -1,5 +1,5 @@
 # Minor Project: Sentiment Analysis
-This repository contains full code and deployment steps of my college's minor project on sentiment analysis.
+This repository contains full code and deployment steps of my minor project on sentiment analysis.
 
 Finally deployed model can be accessed from link: https://model-minor-project.herokuapp.com/ 
 
